@@ -54,4 +54,17 @@ Acesse a documentação da sua API em: http://127.0.0.1:8000/docs -- documentaç
 
 ### Testes -- Utilização do Postman
 Coleção com testes para todos os endpoints (CRUD e autenticação).
+<p>Token de autorização: {{access_token}} -- Isso fará com que todas as requisições desta coleção usem automaticamente um token que será salvo na variável access_token mais tarde</p>
+
+### Access token
+{
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTc1ODM5Mjc0MH0.8PljV0Qww-sDqp0tCrl8Gf7jzMj2JqxymJrUbDT_EwQ",
+    "token_type": "bearer"
+}
+
+### Diagrama entidade relacionamento
+![DIAGRAMA ER - API GOV](https://github.com/user-attachments/assets/fa313252-1142-42a4-a975-bcf4a736074e)
+
+### Fluxograma
+![fluxograma fast appi gov](https://github.com/user-attachments/assets/1afefde1-4c39-4d9a-8937-8a763c781d7a)
 
