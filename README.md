@@ -4,54 +4,6 @@
 ### Dado utilizado: 
 [Características dos produtos da saúde suplementar](https://dados.gov.br/dados/conjuntos-dados/caracteristicas-dos-produtos-da-saude-suplementar)
 
-### Criação de um ambiente virtual
-```python -m venv venv```
-
-### Ativação
-```venv\Scripts\activate```
-
-### Instalação das bibliotecas necessárias
-<p> Aqui o ambiente virtual está ativado e foi instalado as bibliotecas: FastAPI, Uvicorn (para rodar o servidor), SQLAlchemy e Python-jose (para JWT). </p>
-
-```pip install fastapi "uvicorn[standard]" sqlalchemy python-jose[cryptography] passlib[bcrypt]```
-
-### Pastas
-```.
-├── app/
-│   ├── __init__.py
-│   ├── main.py        # Onde o FastAPI será inicializado
-│   ├── database.py    # Conexão com o SQLite
-│   ├── models/        # Schemas do SQLAlchemy
-│   │   ├── __init__.py
-│   │   ├── user.py
-│   │   └── data_models.py
-│   ├── schemas/       # Schemas do Pydantic (validação de dados)
-│   │   ├── __init__.py
-│   │   ├── user.py
-│   │   └── data_schemas.py
-│   ├── services/      # Lógica de negócio
-│   │   ├── __init__.py
-│   │   └── data_service.py
-│   └── routers/       # Endpoints da API
-│       ├── __init__.py
-│       ├── auth.py
-│       └── data_routes.py
-├── .gitignore
-├── README.md
-├── requirements.txt
-
-```
-
-### Execução do servidor
-O --reload faz o servidor reiniciar automaticamente ao detectar mudanças.
-
-```
-uvicorn app.main:app --reload
-```
-
-### Acesso a interface Swagger
-Acesse a documentação da sua API em: http://127.0.0.1:8000/docs -- documentação automática.
-
 ### Testes -- Utilização do Postman
 Coleção com testes para todos os endpoints (CRUD e autenticação).
 <p>Token de autorização: {{access_token}} -- Isso fará com que todas as requisições desta coleção usem automaticamente um token que será salvo na variável access_token mais tarde</p>
@@ -61,13 +13,6 @@ Coleção com testes para todos os endpoints (CRUD e autenticação).
     "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTc1ODM5Mjc0MH0.8PljV0Qww-sDqp0tCrl8Gf7jzMj2JqxymJrUbDT_EwQ",
     "token_type": "bearer"
 }
-
-### Diagrama entidade relacionamento
-![DIAGRAMA ER - API GOV](https://github.com/user-attachments/assets/fa313252-1142-42a4-a975-bcf4a736074e)
-
-### Fluxograma
-![fluxograma fast appi gov](https://github.com/user-attachments/assets/1afefde1-4c39-4d9a-8937-8a763c781d7a)
-
 
 # RELATÓRIO
 ## 1. Introdução
@@ -166,8 +111,44 @@ cd APIrest_trabalho
 ```
 ### 4.3 Configuração do ambiente virtual
 Crie e ative um aambiente virtual para que possa instalar as depenências de forma isolada
-* No Windows copie e cole no terminal:
-  ```
-  python -m venv .venv
-  .venv\Scripts\activate
+* No **Windows** copie e cole no terminal:
 ```
+python -m venv .venv
+.venv\Scripts\activate
+```
+* No **Linux  ou MacOS** copie e cole:
+```
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+### 4.4 Instalar as dependências
+No ambiente virtual ativado, instale as bibliotecas necessárias para o projeto:
+```
+pip install -r requirements.txt
+```
+Abaixo, será instalado as bibliotecas: FastAPI, Uvicorn (para rodar o servidor), SQLAlchemy e Python-jose (para JWT). </p>
+
+```pip install fastapi "uvicorn[standard]" sqlalchemy python-jose[cryptography] passlib[bcrypt]```
+
+### 4.5 Execução da API
+Inicie o servidor Uvicorn para que a API seja executada localmente. O modo `--reload` permite que o servidor reinicie automaticamente a cada alteração no código.
+
+```
+uvicorn main:app --reload
+```
+A API estará disponível em http://127.0.0.1:8000
+
+### 4.6. Acessar a Documentação Interativa
+Com a API em execução, acesse a documentação interativa para testar os endpoints:
+* Swagger UI: http://127.0.0.1:8000/docs
+* Redoc: http://127.0.0.1:8000/redoc
+
+## 5. Conclusão
+
+O desenvolvimento desta API RESTful demonstrou a aplicação prática de conceitos de programação e arquitetura de software para resolver um problema real de gestão de dados públicos. O projeto resultou em uma solução completa, que vai desde a modelagem de um banco de dados relacional até a criação de endpoints seguros e documentados.
+
+A utilização do FastAPI, combinada com o SQLAlchemy, provou ser uma escolha eficiente para a criação de uma API performática e com código limpo. A implementação do sistema de autenticação com JWT garantiu que a API não apenas disponibiliza os dados, mas também os protege, permitindo o acesso apenas a usuários autorizados para operações críticas como a inserção de novos registros.
+
+Em suma, este trabalho consolida o entendimento sobre o ciclo de vida de uma API, desde a concepção e modelagem até a implementação e documentação. A API está pronta para ser expandida, podendo servir como a base para futuros desenvolvimentos ou integrações.
+
