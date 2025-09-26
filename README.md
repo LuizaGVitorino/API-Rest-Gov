@@ -1,5 +1,11 @@
 # Trabalho de Projetos -- aula de sexta feira
 
+# Alunos
+<p>Luiza Gabrielly: 29951020</p>
+<p>Maria Victoria Araujo: 29701325</p>
+<p>Pedro Lucas Garcia: 29997925</p>
+<p>Rafael Vital Veras: 29356971</p>
+<p>Gabrielly Moura de Souza: 42647231</p>
 ## Desenvolver uma API rest com um dado aberto do governo
 ### Dado utilizado: 
 [Características dos produtos da saúde suplementar](https://dados.gov.br/dados/conjuntos-dados/caracteristicas-dos-produtos-da-saude-suplementar)
